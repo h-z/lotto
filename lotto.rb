@@ -51,6 +51,7 @@ class Lotto
   end
 
   def winner? my_numbers, start_date, end_date
+    p my_numbers
     read_data.collect do |row|
       intersect = numbers(row) & my_numbers
       dt = date(row)

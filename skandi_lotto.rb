@@ -1,5 +1,3 @@
-require './lotto.rb'
-
 class SkandiLotto < Lotto
   def url
     "http://www.szerencsejatek.hu/xls/skandi.csv"
@@ -24,7 +22,3 @@ class SkandiLotto < Lotto
   end
 
 end
-
-
-s = SkandiLotto.new 
-p s.winner? [1,2,3,4,5,81, 82, 83, 84, 85, 86, 22,33,44,55,66,12,43,32], "2012.04.04.", "2012.07.23."

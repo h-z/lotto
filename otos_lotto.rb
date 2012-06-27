@@ -1,5 +1,3 @@
-require './lotto.rb'
-
 class OtosLotto < Lotto
   def url
     "http://www.szerencsejatek.hu/xls/otos.csv"
@@ -24,7 +22,3 @@ class OtosLotto < Lotto
   end
 
 end
-
-
-o = OtosLotto.new 
-p o.winner? [81, 82, 83, 84, 85, 86, 22,33,44,55,66,12,43,32], "2012.04.04.", "2012.07.23."

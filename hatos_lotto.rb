@@ -1,5 +1,3 @@
-require './lotto.rb'
-
 class HatosLotto < Lotto
   def url
     "http://www.szerencsejatek.hu/xls/hatos.csv"
@@ -24,7 +22,3 @@ class HatosLotto < Lotto
   end
 
 end
-
-
-h = HatosLotto.new 
-p h.winner? [1,2,3,4,5,81, 82, 83, 84, 85, 86, 22,33,44,55,66,12,43,32], "2012.04.04.", "2012.07.23."
