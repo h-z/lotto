@@ -2,6 +2,13 @@ require 'csv'
 require 'open-uri'
 
 class Lotto
+  attr_accessor :start_date, :end_date
+  def initialize my_numbers, sd, ed
+    @my_numbers = my_numbers
+    @start_date = sd
+    @end_date = ed
+    p "initialized lotto with my numbers: #{my_numbers} \nfrom: #{start_date} to #{end_date}"
+  end
 
   def read_data
     filename = "lotto-" + url.split("/").last
@@ -46,23 +53,23 @@ class Lotto
     nil
   end
 
-  def valid? is, dt, sd, ed
+  def valid? is, dt  
     true
   end
 
-  def winner? my_numbers, start_date, end_date
+  def winner? 
     read_data.collect do |row|
-      intersect = numbers(row) & my_numbers
+      intersect = numbers(row) & @my_numbers
+      #p intersect if intersect.size > 3
       dt = date(row)
       nil
       begin
         {:winner_numbers => intersect,
          :date => dt
-        } if valid?(intersect, dt, start_date, end_date) 
+        } if valid?(intersect, dt) 
       rescue
         nil
       end
     end.compact
   end
-
 end

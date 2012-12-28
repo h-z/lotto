@@ -11,16 +11,18 @@ class LottoRunner
   def run args
     begin
       args[1] = YAML::load(args[1])
-      p lotto(args.first).winner? args[1], args[2], args[3]
+      l = lotto(args.first).new(args[1], args[2], args[3])
+      p l.winner?
     rescue
       p 'error'
     end
   end
   
   def lotto klass
-    return @lottos[klass] unless @lottos[klass].nil?
-    @lottos[klass] = klasses[klass].new
-    @lottos[klass]
+    #return @lottos[klass] unless @lottos[klass].nil?
+    #@lottos[klass] = klasses[klass]
+    klasses[klass]
+    #@lottos[klass]
   end
 
   def klasses

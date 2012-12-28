@@ -15,10 +15,9 @@ class HatosLotto < Lotto
     row[2]
   end
 
-  def valid? is, dt, start_date, end_date
-    #p [is.size, dt, start_date, end_date] unless dt.nil?
+  def valid? is, dt
     return false if dt.nil?
-    (is.size > 2) and dt > start_date and dt < end_date
+    (is.size > 2) and dt > @start_date and dt < @end_date
   end
 
 end
